@@ -14,5 +14,5 @@ python-magic==0.4.27
 aiofiles==23.2.1
 Pillow==10.1.0
 reportlab==4.0.7
-smtplib-async==1.0.0
+aiosmtplib==3.0.1
 emergentintegrations
