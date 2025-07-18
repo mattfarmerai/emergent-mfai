@@ -222,13 +222,15 @@ def test_payment_checkout_creation():
     print("="*60)
     
     try:
-        # Test payment checkout creation with form data
+        # Test payment checkout creation with form data (not JSON)
         payment_data = {
             "credits": 1,
             "host_url": BASE_URL
         }
         
-        response = make_request("POST", f"{API_BASE}/payments/create-checkout", data=payment_data)
+        # Use requests.post directly with data parameter for form data
+        headers = {"Content-Type": "application/x-www-form-urlencoded"}
+        response = requests.post(f"{API_BASE}/payments/create-checkout", data=payment_data, headers=headers, timeout=30)
         
         if response.status_code == 200:
             data = response.json()
